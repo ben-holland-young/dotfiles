@@ -168,7 +168,7 @@ map <leader>bd :Bclose<cr>
 map <leader>ba :1,1000 bd!<cr>
 
 " Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
+map <leader>t :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
@@ -296,6 +296,25 @@ endfunction
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif"
 map <leader>n :NERDTreeToggle<CR>
+
+" Easy tab switching
+nnoremap <leader>tp :tabprevious<CR>
+nnoremap <leader>tn :tabnext<CR>
+
+
+" window options
+	set showmode
+	set showcmd
+	set ruler
+	set ttyfast
+	set backspace=indent,eol,start
+	set laststatus=2
+
+" better tab completion on commands
+	set wildmenu
+	set wildmode=list:longest
+
+
  
 
 
