@@ -43,7 +43,7 @@ Plugin 'Django-Projects'
 call vundle#end()           
 filetype plugin indent on  
 " Show line numbers
-set number
+set relativenumber
 " Sets how many lines of history VIM has to remember
 set history=700
 
@@ -59,8 +59,10 @@ set autoread
 let mapleader = "§"
 let g:mapleader = "§"
 
-" Fast saving
+" Fast shortcuts
 nmap <leader>w :w!<cr>
+nmap <leader>q :q!<cr>
+nmap <leader>wq :wq!<cr>
 
 "Always show current position
 set ruler
@@ -289,18 +291,11 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
-"Relative Line Numbers so if i press ctrl n it toggles between relative and absolute
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
 
-nnoremap <C-n> :call NumberToggle()<cr>
-
-
+" Nerd tree auto opening on startup
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif"
+map <leader>n :NERDTreeToggle<CR>
  
 
 
