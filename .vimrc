@@ -34,6 +34,7 @@ Plugin 'apple/swift'
 Plugin 'toyamarinyon/vim-swift'
 Plugin 'django.vim'
 Plugin 'Django-Projects'
+Plugin 'leafgarland/typescript-vim'
 
 
 
