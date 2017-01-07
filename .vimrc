@@ -35,7 +35,7 @@ Plugin 'toyamarinyon/vim-swift'
 Plugin 'django.vim'
 Plugin 'Django-Projects'
 Plugin 'leafgarland/typescript-vim'
-
+Plugin 'timheap/linters.vim'
 
 
 
@@ -316,7 +316,6 @@ nnoremap <leader>tn :tabnext<CR>
 	set wildmode=list:longest
 
 
- 
 
 
 
