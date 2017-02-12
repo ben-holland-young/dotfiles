@@ -316,8 +316,8 @@ nnoremap <leader>tn :tabnext<CR>
 	set wildmode=list:longest
 " splitting made easier
 "
-map <leader>vs :vsplit
-map <leader>s :split
+map <leader>vs :vsplit<CR>
+map <leader>s :split<CR>
 
 
 
