@@ -314,7 +314,10 @@ nnoremap <leader>tn :tabnext<CR>
 " better tab completion on commands
 	set wildmenu
 	set wildmode=list:longest
-
+" splitting made easier
+"
+map <leader>vs :vsplit
+map <leader>s :split
 
 
 
