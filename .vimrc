@@ -319,6 +319,9 @@ nnoremap <leader>tn :tabnext<CR>
 map <leader>vs :vsplit<CR>
 map <leader>s :split<CR>
 
+"tagbar toggle
+nmap <leader>tt :TagbarToggle<CR>
+
 
 
 
