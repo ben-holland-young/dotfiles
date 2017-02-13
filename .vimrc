@@ -36,6 +36,7 @@ Plugin 'django.vim'
 Plugin 'Django-Projects'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'timheap/linters.vim'
+Plugin 'bling/vim-bufferline'
 
 
 
