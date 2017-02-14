@@ -37,6 +37,16 @@ Plugin 'Django-Projects'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'timheap/linters.vim'
 Plugin 'bling/vim-bufferline'
+Plugin 'airblade/vim-gitgutter'
+"Plugin 'godlygeek/tabular'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'shougo/vimproc.vim'
+Plugin 'thinca/vim-quickrun'
+Plugin 'ap/vim-css-color'
+Plugin 'mhinz/vim-startify'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'ryanoasis/vim-devicons'
 
 
 
@@ -323,7 +333,8 @@ map <leader>s :split<CR>
 "tagbar toggle
 nmap <leader>tt :TagbarToggle<CR>
 
-
+"tmux colour thing
+let g:tmuxline_powerline_separators = 0
 
 
 
