@@ -336,7 +336,8 @@ nmap <leader>tt :TagbarToggle<CR>
 "tmux colour thing
 let g:tmuxline_powerline_separators = 0
 
-
+"adds .. to show indentation
+set list listchars=tab:»-,trail:·,extends:»,precedes:«
 
 
 
