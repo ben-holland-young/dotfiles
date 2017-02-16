@@ -46,9 +46,7 @@ Plugin 'thinca/vim-quickrun'
 Plugin 'ap/vim-css-color'
 Plugin 'mhinz/vim-startify'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'ryanoasis/vim-devicons'
-
-
+Plugin 'vim-airline/vim-airline-themes'
 
 
 
@@ -336,13 +334,5 @@ nmap <leader>tt :TagbarToggle<CR>
 "tmux colour thing
 let g:tmuxline_powerline_separators = 0
 
-
-
-
-
-
-
-
-
-
-
+"change status line theme
+let g:airline_theme='papercolor'
