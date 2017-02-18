@@ -47,6 +47,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'mhinz/vim-startify'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'vimwiki/vimwiki'
 
 
 
