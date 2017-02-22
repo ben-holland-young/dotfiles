@@ -50,8 +50,9 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'whatyouhide/vim-gotham'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Chiel92/vim-autoformat'
-
-
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'lepture/vim-jinja'
 
 
 
@@ -349,5 +350,9 @@ noremap <leader>af :Autoformat<cr>
 
 "map keybinding to fix whitespace
 map <leader>fs :FixWhitespace<cr>
+
+"change encoding
+set encoding=utf8
+let g:airline_powerline_fonts = 1
 
 
