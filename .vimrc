@@ -50,8 +50,6 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'whatyouhide/vim-gotham'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'lepture/vim-jinja'
 
 
