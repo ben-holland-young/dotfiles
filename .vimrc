@@ -38,7 +38,6 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'timheap/linters.vim'
 Plugin 'bling/vim-bufferline'
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'godlygeek/tabular'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'shougo/vimproc.vim'
@@ -51,6 +50,7 @@ Plugin 'whatyouhide/vim-gotham'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'lepture/vim-jinja'
+Plugin 'vim-scripts/vim-auto-save'
 
 
 
@@ -350,7 +350,13 @@ noremap <leader>af :Autoformat<cr>
 map <leader>fs :FixWhitespace<cr>
 
 "change encoding
+"
 set encoding=utf8
 let g:airline_powerline_fonts = 1
 
+"auto save on
+let g:auto_save = 1
+
+"code folding
+set foldmethod=indent
 
