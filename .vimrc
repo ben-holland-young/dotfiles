@@ -24,7 +24,6 @@ Plugin 'godlygeek/tabular'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-repeat'
 Plugin 'mattn/emmet-vim'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-markdown'
 Plugin 'othree/html5.vim'
@@ -42,6 +41,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'shougo/vimproc.vim'
 Plugin 'thinca/vim-quickrun'
+Plugin 'lepture/vim-jinja'
 Plugin 'ap/vim-css-color'
 Plugin 'mhinz/vim-startify'
 Plugin 'edkolev/tmuxline.vim'
@@ -49,8 +49,39 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'whatyouhide/vim-gotham'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'lepture/vim-jinja'
 Plugin 'vim-scripts/vim-auto-save'
+Plugin 'keith/investigate.vim'
+Plugin 'simeji/winresizer'
+Plugin 'wvffle/vimterm'
+Plugin 'simnalamburt/vim-mundo'
+Plugin 'vim-scripts/header.vim'
+Plugin 'matze/vim-move'
+Plugin 'vim-scripts/pylint.vim'
+Plugin 'vim-scripts/TeTrIs.vim'
+Plugin 'vim-scripts/Indent-Finder'
+Plugin 'vim-scripts/TwitVim'
+Plugin 'vim-scripts/CycleColor'
+Plugin 'vim-scripts/vim-www'
+Plugin 'maksimr/vim-translator'
+Plugin 'hienvd/vim-stackoverflow'
+Plugin 'manasthakur/vimsessionist'
+Plugin 'tibabit/vim-todo'
+Plugin 'wsdjeg/github-api.vim'
+Plugin 'muansari96/vimify'
+Plugin 'Tabtastic'
+Plugin 'amdt/sunset'
+Plugin 'janko-m/vim-test'
+Plugin 'mattesgroeger/vim-bookmarks'
+Plugin 'roman/golden-rato'
+Plugin 'koron/minimap-vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'arecarn/crunch.vim'
+Plugin 'sirver/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'alvan/vim-closetag'
+Plugin 'c9s/hypergit.vim'
+
+
 
 
 
@@ -358,5 +389,51 @@ let g:airline_powerline_fonts = 1
 let g:auto_save = 1
 
 "code folding
-set foldmethod=indent
+"set foldmethod=indent
 
+"open docs in dash
+let g:investigate_use_dash=1
+
+"undo tree
+"" Enable persistent undo so that undo history persists across vim sessions
+set undofile
+set undodir=~/.vim/undo
+
+"toggler for undo tree
+map <leader>mm :MundoToggle<CR>
+
+"run tetris
+map <leader>te /te<CR>
+
+" relative line numbers
+function! g:ToggleNuMode()
+    if(&rnu == 1)
+        set nu
+    else
+        set rnu
+    endif
+endfunc
+nnoremap <leader>rl :call g:ToggleNuMode()<cr>
+
+
+
+"fav links
+let g:www_urls = {
+            \'vimcom' : 'http://www.vim.org/community.php',
+            \'stack' : 'http://stackoverflow.com',
+            \'youtube' : 'https://www.youtube.com',
+            \'facebook' : 'https://www.facebook.com',
+            \'netflix' : 'https://www.netflix.com'
+            \}
+
+"disabling arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+"use <C-J> and <C-K> to move selection up and down
+let g:move_key_modifier = 'C'
+
+"tabtastic trigger
+
+map <leader>ta :Tabtastic<cr>
