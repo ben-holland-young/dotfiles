@@ -10,21 +10,18 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
+"Plugin 'ben-holland-young/avea-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-rails'
 Plugin 'godlygeek/tabular'
-Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-repeat'
-Plugin 'mattn/emmet-vim'
-Plugin 'tomasr/molokai'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-markdown'
 Plugin 'othree/html5.vim'
 Plugin 'elzr/vim-json'
@@ -32,6 +29,10 @@ Plugin 'c.vim'
 Plugin 'apple/swift'
 Plugin 'toyamarinyon/vim-swift'
 Plugin 'django.vim'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-repeat'
+Plugin 'mattn/emmet-vim'
+Plugin 'tomasr/molokai'
 Plugin 'Django-Projects'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'timheap/linters.vim'
@@ -54,13 +55,13 @@ Plugin 'keith/investigate.vim'
 Plugin 'simeji/winresizer'
 Plugin 'wvffle/vimterm'
 Plugin 'simnalamburt/vim-mundo'
-Plugin 'vim-scripts/header.vim'
 Plugin 'matze/vim-move'
 Plugin 'vim-scripts/pylint.vim'
 Plugin 'vim-scripts/TeTrIs.vim'
 Plugin 'vim-scripts/Indent-Finder'
 Plugin 'vim-scripts/TwitVim'
 Plugin 'vim-scripts/CycleColor'
+Plugin 'mattesgroeger/vim-bookmarks'
 Plugin 'vim-scripts/vim-www'
 Plugin 'maksimr/vim-translator'
 Plugin 'hienvd/vim-stackoverflow'
@@ -71,8 +72,7 @@ Plugin 'muansari96/vimify'
 Plugin 'Tabtastic'
 Plugin 'amdt/sunset'
 Plugin 'janko-m/vim-test'
-Plugin 'mattesgroeger/vim-bookmarks'
-Plugin 'roman/golden-rato'
+Plugin 'roman/golden-ratio'
 Plugin 'koron/minimap-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'arecarn/crunch.vim'
@@ -80,6 +80,7 @@ Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'alvan/vim-closetag'
 Plugin 'c9s/hypergit.vim'
+Plugin 'Quramy/tsuquyomi'
 
 
 
@@ -373,6 +374,8 @@ set list listchars=tab:»-,trail:·,extends:»,precedes:«
 
 "change colorscheme
 colorscheme gotham256
+"color column
+set colorcolumn=90
 
 "add command for auto formatting
 noremap <leader>af :Autoformat<cr>
@@ -403,7 +406,7 @@ set undodir=~/.vim/undo
 map <leader>mm :MundoToggle<CR>
 
 "run tetris
-map <leader>te /te<CR>
+map <leader>te /te<cr>
 
 " relative line numbers
 function! g:ToggleNuMode()
@@ -418,13 +421,14 @@ nnoremap <leader>rl :call g:ToggleNuMode()<cr>
 
 
 "fav links
-let g:www_urls = {
-            \'vimcom' : 'http://www.vim.org/community.php',
-            \'stack' : 'http://stackoverflow.com',
-            \'youtube' : 'https://www.youtube.com',
-            \'facebook' : 'https://www.facebook.com',
-            \'netflix' : 'https://www.netflix.com'
-            \}
+"let g:www_urls = {
+"\'vimcom' : 'http://www.vim.org/community.php',
+"\'stack' : 'http://stackoverflow.com',
+"\'youtube' : 'https://www.youtube.com',
+"\'facebook' : 'https://www.facebook.com',
+"\'netflix' : 'https://www.netflix.com'
+"B
+"\}
 
 "disabling arrow keys
 noremap <Up> <NOP>
@@ -435,5 +439,184 @@ noremap <Right> <NOP>
 let g:move_key_modifier = 'C'
 
 "tabtastic trigger
-
 map <leader>ta :Tabtastic<cr>
+
+"light control
+map <leader>ao :!avea set-color blue_violet<CR>
+map <leader>f :!avea off <CR>
+
+"refresh
+function! Re()
+    !cp .vimrc ~
+    source ~/.vimrc
+endfunc
+
+
+
+"light function
+function! ShowColors()
+    vnew | r ! avea show-colors
+endfunc
+function! AddColor()
+    let toAdd = input("What would you like your colour to be called?: ")
+    let red = input("Red 0-255: ")
+    let green = input("Green 0-255: ")
+    let blue = input("Blue 0-255: ")
+    let white = "0"
+    execute '! avea add-color ' . toAdd . " " . red . " " . green . " " . blue . " " . white
+endfunc
+function! DeleteColor()
+    let toDel = input("What colour would you like to delete")
+    execute '! avea delete-color ' . toDel
+endfunc
+function! SetBrightness()
+    let bright = input("Brightness 0-255: ")
+    execute '! avea set-brightness ' . bright
+endfunc
+
+function! LightOn()
+    let choice = input("Which color would you like to set?: ")
+    execute '! avea set-color ' . choice
+endfunc
+
+function! LightOff()
+    !avea off
+endfunc
+
+function! LightManager()
+
+    echo "(1): Show Colors\n (2): Add color\n (3): Delete Color\n (4): Set Brightness\n (5): Turn Light on\n (6): Turn Light Off \n"
+    let choice = input("")
+    if choice == "1"
+        call ShowColors()
+    elseif choice == "2"
+        call AddColor()
+    elseif choice == "3"
+        call DeleteColor()
+    elseif choice == "4"
+        call SetBrightness()
+    elseif choice == "5"
+        call LightOn()
+    elseif choice == "6"
+        call LightOff()
+    endif
+
+endfunc
+
+"mapping for light control
+map <leader>sh :call ShowColors()<cr>
+map <leader>so :call LightOn()<cr>
+map <leader>sf :call LightOff()<cr>
+map <leader>sa :call AddColor()<cr>
+map <leader>sd :call DeleteColor()<cr>
+map <leader>sm :call LightManager()<cr>
+
+
+function! Weather()
+
+python << EOF
+import vim, urllib2, json
+
+send_url = 'http://freegeoip.net/json'
+response = urllib2.urlopen(send_url, None, 20).read()
+j = json.loads(response)
+lat = j.get('latitude','')
+lon = j.get('longitude','')
+
+TIMEOUT = 20
+key = "a69c3d11bd54ee9d92fb154f91b049b8"
+url = "https://api.darksky.net/forecast/" + key + "/" + str(lat) + "," + str(lon) + "?units=si"
+response = urllib2.urlopen(url, None, TIMEOUT).read()
+json_response = json.loads(response)
+current = json_response.get("currently","")
+
+temp = current.get("temperature")
+temp_cmd = "vnew | r !echo 'Temperature: %s' " % temp
+vim.command(temp_cmd)
+
+summary = current.get("summary")
+summary_cmd = "r !echo 'Summary: %s' " % summary
+vim.command(summary_cmd)
+
+storm = current.get("nearestStormDistance")
+storm_cmd = "r !echo 'Nearest Storm: %s KM' " % storm
+vim.command(storm_cmd)
+
+windSpeed = current.get("windSpeed")
+wind_cmd = "r !echo 'Wind Speed: %s KMPH' " % windSpeed
+vim.command(wind_cmd)
+EOF
+
+
+endfunction
+"mapping for weather client
+map <leader>tw :call Weather()<Cr>
+
+"chuck norris joke generator
+function! Chuck()
+python << EOF
+import vim, urllib2, json
+url = "https://api.chucknorris.io/jokes/random"
+response = urllib2.urlopen(url, None, 20).read()
+j = json.loads(response)
+joke = j.get("value","")
+
+command = "vnew | r !echo '%s'" % joke
+vim.command(command)
+
+EOF
+endfunction
+
+"cancel search with esc
+nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
+
+
+"delete blank lines
+map <leader>dl :g/^$/d<cr>
+
+"spotify client
+function! SpPause()
+    !spotify pause
+endfunc
+function! SpPlay()
+    !spotify play
+endfunc
+function! SpUp()
+    !spotify vol up
+endfunc
+function! SpDown()
+    !spotify vol down
+endfunc
+function! SpNext()
+    !spotify next
+endfunc
+function! SpPrevious()
+    !spotify prev
+endfunc
+
+map <leader>k :call SpUp()<cr>
+map <leader>j :call SpDown()<cr>
+map <leader>l :call SpNext()<cr>
+map <leader>h :call SpPrevious()<cr>
+
+function! Speed()
+    vnew | r ! mac speedtest
+endfunc
+
+
+
+
+
+"
+
+
+
+
+
+
+
+
+
+
+
+
